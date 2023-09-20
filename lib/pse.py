@@ -12,6 +12,7 @@
 # 3. sort the unique values based on their counts
 # 4. return the first k values
 
+# takes an array of values and generates a frequency map
 def make_counts(arr):
     counts = {}
     for num in arr:
@@ -25,8 +26,8 @@ def make_counts(arr):
     return counts
 
 def most_frequent_k_elements(arr, k):
-    counts = make_counts(arr)  # O(n), O(n)
+    counts = make_counts(arr)  # time: O(n), space: O(n)
     uniq_nums = list(counts.keys())  # O(n), O(n)
-    uniq_nums.sort(key=lambda num: counts[num], reverse=True)  # O(n log n), O(n) 
-    # uniq_nums.sort(key=counts.get)
+    uniq_nums.sort(key=lambda num: counts[num], reverse=True)  # O(n log n), O(n) (assuming merge sort)
+    # uniq_nums.sort(key=counts.get, reverse=True)
     return uniq_nums[:k]  # O(n), O(n)
